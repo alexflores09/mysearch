@@ -1,0 +1,98 @@
+{
+  "dell": {
+    "laptops":[
+      {
+        "procesador":"1.6 GHz Intel Core i5",
+        "ram": "8 GB DDR SDRAM",
+        "almacenamiento":"1 TB HDD 5400 rpm",
+        "video":"integrado",
+        "imagen":"images/productos/dell1.jpg",
+        "precio":"4296"
+      },
+      {
+        "procesador":"1.8 GHz Intel Core i7",
+        "ram": "8 GB",
+        "almacenamiento":"1 TB HDD 5400 rpm",
+        "video":"Intel UHD graphics 620",
+        "imagen":"images/productos/dell2.jpg",
+        "precio":"5290"
+      },
+      {
+        "procesador":"2.5 GHz Intel Core Duo",
+        "ram": "8 GB SDRAM DDR4",
+        "almacenamiento":"2 TB HDD 5400 rpm",
+        "video":"Intel HD Graphics 620",
+        "imagen":"images/productos/dell3.jpg",
+        "precio":"3599"
+      },
+      {
+        "procesador":"2.5 GHz AMD A Series",
+        "ram": "4 GB DDR3 SDRAM",
+        "almacenamiento":"500 GB HDD 5400 rpm",
+        "video":"AMD Radeon R4",
+        "imagen":"images/productos/dell4.jpg",
+        "precio":"2120"
+      }
+    ]
+  },
+  "hp":{
+    "laptops":[
+      {
+        "procesador":"1.1 GHz 8032",
+        "ram": "4 GB SDRAM",
+        "almacenamiento":"Flash Memory Solid State",
+        "video":"Integrated",
+        "imagen":"images/productos/hp1.jpg",
+        "precio":"2128"
+      },
+      {
+        "procesador":"2.5 GHz Intel Core i5",
+        "ram": "8 GB SDRAM",
+        "almacenamiento":"1000 GB HDD 5400 rpm",
+        "video":"Intel UHD graphics 620",
+        "imagen":"images/productos/hp2.jpg",
+        "precio":"3739"
+      }
+    ]
+  },
+  "alienware":{
+    "laptops":[
+      {
+        "procesador":"2.8 GHz Intel Core i7",
+        "ram": "32 GB",
+        "almacenamiento":"512 GB SSD",
+        "video":"NVIDIA GeForce GTX 1060",
+        "imagen":"images/productos/alienware1.jpg",
+        "precio":"14090"
+      },
+      {
+        "procesador":"2.8 GHz Intel Core i7",
+        "ram": "32 GB",
+        "almacenamiento":"512 GB SSD",
+        "video":"NVIDIA GeForce GTX 1060",
+        "imagen":"images/productos/alienware2.jpg",
+        "precio":"15574"
+      }
+    ]
+  },
+  "nvidia":{
+    "video":[
+      {
+        "procesador":"",
+        "ram": "",
+        "almacenamiento":"8 GB",
+        "video":"NVIDIA GeForce GTX 1080",
+        "imagen":"images/productos/nvidia1.jpg",
+        "precio":"4281"
+      },
+      {
+        "procesador":"",
+        "ram": "",
+        "almacenamiento":"8 GB",
+        "video":"Nvidia GEFORCE GTX 1070 Ti",
+        "imagen":"images/productos/nvidia2.jpg",
+        "precio":"3937"
+      }
+    ]
+  }
+}

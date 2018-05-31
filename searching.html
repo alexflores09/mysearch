@@ -26,8 +26,54 @@
 </nav>
 <main class="container">
 
-
-
+<div class="row">
+    <div class="col l12" style="margin-top: 20px;margin-bottom: 20px;">
+        <form>
+            <div class="input-field col l4 s12">
+                <select name="sltMarca" id="sltMarca">
+                    <option value="" disabled selected>Elija una opción</option>
+                    <option value="dell">Dell</option>
+                    <option value="hp">HP</option>
+                    <option value="alienware">Alienware</option>
+                    <option value="nvidia">Nvidia</option>
+                </select>
+                <label for="sltMarca">Marca</label>
+            </div>
+            <div class="input-field col l4 s12">
+                <select name="sltProducto" id="sltProducto">
+                    <option value="" disabled selected>Elija una opción</option>
+                    <option value="laptops">Laptops</option>
+                    <option value="video">Tarjeta de video</option>
+                </select>
+                <label for="sltProducto">Producto</label>
+            </div>
+            <div class="input-field col l4 s12">
+                <input placeholder="Ej: 2.8 GHz" id="txtProcesador" type="text">
+                <label for="txtProcesador">Procesador</label>
+            </div>
+            <div class="input-field col l4 s12">
+                <input placeholder="Ej: 8" id="txtRam" type="text">
+                <label for="txtRam">RAM</label>
+            </div>
+            <div class="input-field col l4 s12">
+                <input placeholder="Ej: 1 TB" id="txtAlmacenamiento" type="text">
+                <label for="txtAlmacenamiento">Almacenamiento</label>
+            </div>
+            <div class="row">
+                <div class="input-field col l12 s12 center">
+                    <button type="button" onclick="getData();" name="btnSearch" id="btnSearch" class="waves-effect waves-light btn">
+                        <i class="material-icons left">search</i>Buscar
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="row">
+    <div class="col l12">
+        <div id="divData"></div>
+    </div>
+</div>
 
 </main>
 <footer class="page-footer indigo darken-4">
@@ -40,7 +86,7 @@
             <div class="col l4 offset-l2 s12">
                 <h5 class="white-text">Redes sociales</h5>
                 <ul>
-                    <li><a class="grey-text text-lighten-3" href="#!"><i class="fab fa-facebook-square"></i>&nbsp;Facebook</a></li>
+                    <li><a class="grey-text text-lighten-3" href="https://www.facebook.com/My-search-1734750239949473/"><i class="fab fa-facebook-square"></i>&nbsp;Facebook</a></li>
                     <li><a class="grey-text text-lighten-3" href="#!"><i class="fab fa-instagram"></i>&nbsp;Instagram</a></li>
                 </ul>
             </div>
@@ -56,5 +102,67 @@
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <script type="text/javascript" src="js/materialize.min.js"></script>
 <script type="text/javascript" src="js/script.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        getData();
+        $('select').formSelect();
+    });
+    var arrData = {};
+    function getData(){
+        $.ajax({
+            type: 'get',
+            url: 'datos.json',
+            success: function(data){
+                var marca = $('#sltMarca').val();
+                var producto = $('#sltProducto').val();
+                var procesador = $('#txtProcesador').val();
+                var ram = $('#txtRam').val();
+                var almacenamiento = $('#txtAlmacenamiento').val();
+
+                if(marca != '' || marca != "null"){
+                    console.log("akjsdfhk");
+                    for(var mrc in data){
+                        if(mrc != marca){
+                            delete data[mrc];
+                        }
+                    }
+                }
+
+                arrData = data;
+                drawItems();
+            }
+        });
+    }
+
+    function drawItems(){
+        var cnt = $('#divData');
+
+        for(var marca in arrData){
+            if(typeof arrData[marca].laptops !== 'undefined' || typeof arrData[marca].video !== 'undefined'){
+                var key = (typeof arrData[marca].laptops !== 'undefined')?'laptops':'video';
+                for(var i in arrData[marca][key]){
+                    var html = `
+                        <div class="col s12 m4 l4">
+                            <div class="card">
+                                <div class="card-image">
+                                    <img src="${arrData[marca][key][i].imagen}" width="200" height="300">
+                                    <span class="card-title">Laptop</span>
+                                </div>
+                                <div class="card-content">
+                                    <p>Procesador: ${arrData[marca][key][i].procesador}</p>
+                                    <p>Ram: ${arrData[marca][key][i].ram}</p>
+                                    <p>Almacenamiento: ${arrData[marca][key][i].almacenamiento}</p>
+                                    <p>Video: ${arrData[marca][key][i].video}</p>
+                                    <p>Percio: ${arrData[marca][key][i].precio}</p>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    cnt.append(html);
+                }
+            }
+        }
+    }
+</script>
 </body>
 </html>
