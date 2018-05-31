@@ -113,20 +113,6 @@
             type: 'get',
             url: 'datos.json',
             success: function(data){
-                var marca = $('#sltMarca').val();
-                var producto = $('#sltProducto').val();
-                var procesador = $('#txtProcesador').val();
-                var ram = $('#txtRam').val();
-                var almacenamiento = $('#txtAlmacenamiento').val();
-
-                if(marca != '' || marca != "null"){
-                    console.log("akjsdfhk");
-                    for(var mrc in data){
-                        if(mrc != marca){
-                            delete data[mrc];
-                        }
-                    }
-                }
 
                 arrData = data;
                 drawItems();
